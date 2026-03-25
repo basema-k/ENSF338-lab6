@@ -1,5 +1,7 @@
 import random
 import timeit
+import sys
+sys.setrecursionlimit(20000)
 
 class BSTNode:
     def __init__(self, value):
@@ -51,7 +53,7 @@ def search_sorted():
 
 total_sorted = timeit.timeit(search_sorted, number=10)
 avg_sorted = total_sorted / 10
-print(f"Sorted - Avg: {avg_sorted:.6f}s, Total: {total_sorted:.6f}s")
+print(f"Sorted - Avg: {avg_sorted:.6f}s")
 
 shuffled_vector = sorted_vector.copy()
 random.shuffle(shuffled_vector)
@@ -64,10 +66,11 @@ def search_shuffled():
         bst2.search(val)
 
 time_shuffled = timeit.timeit(search_shuffled, number=10) / 10
-print(f"Shuffled insertion - Average time: {time_shuffled:.6f}s, Total time: {time_shuffled*10000:.6f}s")
+print(f"Shuffled insertion - Avg: {time_shuffled:.6f}s")
 
 """
-The shuffled insertion approach is faster. When inserting sorted data, the BST becomes skewed 
-(like a linked list) with height O(n), making searches O(n). With shuffled data, the tree is 
-more balanced with height O(log n), making searches faster.
+The shuffled insertion approach is faster. When inserting sorted data, 
+the BST becomes skewed (like a linked list) with height O(n), making searches O(n). 
+With shuffled data, the tree is more balanced with height O(log n), 
+making searches faster.
 """
