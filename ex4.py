@@ -51,7 +51,7 @@ class Heap:
             self._heapify_down(smallest)
 
 
-# --------- TESTS ---------
+# tests
 
 # already heap
 heap1 = Heap()
