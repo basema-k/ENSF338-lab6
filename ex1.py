@@ -49,9 +49,9 @@ def search_sorted():
     for val in sorted_vector:
         bst1.search(val)
 
-time_sorted = timeit.timeit(search_sorted, number=10) / 10
-print(f"Sorted insertion - Average time: {time_sorted:.6f}s, Total time: {time_sorted*10000:.6f}s")
-
+total_sorted = timeit.timeit(search_sorted, number=10)
+avg_sorted = total_sorted / 10
+print(f"Sorted - Avg: {avg_sorted:.6f}s, Total: {total_sorted:.6f}s")
 
 shuffled_vector = sorted_vector.copy()
 random.shuffle(shuffled_vector)
